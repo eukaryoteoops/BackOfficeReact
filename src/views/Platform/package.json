@@ -1,0 +1,6 @@
+{
+  "name": "Platform",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Platform.js"
+}
