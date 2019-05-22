@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
 
+
 import {
   // AppAside,
   // AppFooter,
@@ -28,8 +29,14 @@ class DefaultLayout extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
+  componentDidMount() {
+    let token = localStorage.getItem('token');
+    if (!token)
+      this.props.history.push('/login')
+  }
   signOut(e) {
     e.preventDefault()
+    localStorage.removeItem('token')
     this.props.history.push('/login')
   }
 

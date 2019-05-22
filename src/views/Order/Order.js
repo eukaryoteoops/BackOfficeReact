@@ -29,9 +29,10 @@ class Order extends Component {
 
     getOrderList() {
         let self = this;
+        let token = localStorage.getItem('token');
         axios.get('http://uat.bo.snf.today/BrandPlatform/Order',
             {
-                headers: { "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiIzIiwianRpIjoiZTlhMjRhNjgtMjc1NC00MTY3LWE3ZjgtN2JmMjEzMDVlNTRhIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkZha2UgQWRtaW4gVXNlciIsImxhbmciOiJ6aC1UVyIsImJyYW5kSWQiOiJTTkYiLCJWaXJ0dWFsVXNlciI6IkZhbHNlIiwiVklQVXNlciI6IkZhbHNlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE1NTg0NDgyMjMsImlzcyI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiYXVkIjoicGhvZW5peGludGVyYWN0aXZlIn0.-htufPWSBQ4ODoAFTor771zpgMgGEODT3qT_ToOqiEI` },
+                headers: { "Authorization": `Bearer ${token}` },
                 params: {
                     nickName: this.state.formData.nickName,
                     channelName: this.state.formData.code,
