@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
-import RCPagination from "react-js-pagination";
+import Pagination from "react-js-pagination";
 import { DateRangePicker } from 'react-date-range';
 
 class Order extends Component {
@@ -21,14 +21,10 @@ class Order extends Component {
                 status: 4
             }
         };
-        this.getOrderList = this.getOrderList.bind(this);
-        this.handlePageChange = this.handlePageChange.bind(this);
-        this.handleDatePick = this.handleDatePick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    getOrderList() {
-        let self = this;
+    getOrderList = () => {
+        // let self = this;
         let token = localStorage.getItem('token');
         axios.get('http://uat.bo.snf.today/BrandPlatform/Order',
             {
@@ -45,30 +41,32 @@ class Order extends Component {
                     status: this.state.formData.status
                 }
             })
-            .then(function (response) {
-                self.setState({
+            .then((response) => {
+                this.setState({
                     list: response.data.dataList,
                     total: response.data.amount
                 });
                 window.scrollTo(0, 480);
+            }).catch(() => {
+                this.props.history.push('/login');
             });
     }
 
 
-    handlePageChange(e) {
+    handlePageChange = (e) => {
         this.setState({
             activePage: e
         }, () => { this.getOrderList() })
 
     }
 
-    handleDatePick(ranges) {
+    handleDatePick = (ranges) => {
         this.setState({
             formData: { ...this.state.formData, startDate: ranges.selection.startDate, endDate: ranges.selection.endDate }
         })
     }
 
-    handleInputChange(event) {
+    handleInputChange = (event) => {
         event.persist();
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -193,7 +191,7 @@ class Order extends Component {
                                         })}
                                     </tbody>
                                 </Table>
-                                <RCPagination
+                                <Pagination
                                     hideDisabled
                                     pageRangeDisplayed={10}
                                     activePage={this.state.activePage}

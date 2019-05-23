@@ -20,7 +20,7 @@ class Cards extends Component {
   }
 
   toggleFade() {
-    this.setState((prevState) => { return { fadeIn: !prevState }});
+    this.setState((prevState) => { return { fadeIn: !prevState } });
   }
 
   render() {
@@ -69,7 +69,7 @@ class Cards extends Component {
               <CardHeader>
                 Card with switch
                 <div className="card-header-actions">
-                  <AppSwitch className={'float-right mb-0'} label color={'info'} defaultChecked size={'sm'}/>
+                  <AppSwitch className={'float-right mb-0'} label color={'info'} defaultChecked size={'sm'} />
                 </div>
               </CardHeader>
               <CardBody>
