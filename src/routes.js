@@ -41,10 +41,10 @@ const Dashboard = React.lazy(() => import('./views/Dashboard'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
-  { path: '/order', name: 'Order', component: Order },
-  { path: '/platform', name: 'Platform', component: Platform },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  // { path: '/', exact: true, name: 'Home' },
+  { path: '/order', name: '訂單查詢', component: Order },
+  { path: '/platform', name: '平台報表', component: Platform },
+  { path: '/dashboard', name: '總覽', component: Dashboard },
   // { path: '/theme', exact: true, name: 'Theme', component: Colors },
   // { path: '/theme/colors', name: 'Colors', component: Colors },
   // { path: '/theme/typography', name: 'Typography', component: Typography },

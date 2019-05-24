@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+const Platform = React.memo(function Platform(props) {
 
-class Platform extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-    render() {
-        return (
-            <div>
-                Platform
-            </div>
-        );
-    }
-}
+    return (<div className="animated fadeIn">
+
+    </div>);
+});
+
 
 export default Platform;
